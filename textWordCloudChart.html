@@ -1,0 +1,59 @@
+<template>
+    <div class={themeClass}>
+        <div class="chart-header">
+            <h2 class="chart-title">{chartTitle}</h2>
+            <template if:true={showOrientationControls}>
+                <lightning-button-group>
+                    <lightning-button 
+                        label="Horizontal" 
+                        onclick={handleHorizontalOnly}
+                        variant={horizontalOnlyVariant}>
+                    </lightning-button>
+                    <lightning-button 
+                        label="Vertical" 
+                        onclick={handleVerticalOnly}
+                        variant={verticalOnlyVariant}>
+                    </lightning-button>
+                    <lightning-button 
+                        label="Mixed" 
+                        onclick={handleBothOrientation}
+                        variant={bothOrientationVariant}>
+                    </lightning-button>
+                </lightning-button-group>
+            </template>
+        </div>
+
+        <template if:true={isProcessing}>
+            <div class="loading-container">
+                <lightning-spinner alternative-text="Processing words" size="medium" variant="brand"></lightning-spinner>
+                <p class="loading-text">Processing {totalRows} rows...</p>
+            </div>
+        </template>
+        
+        <template if:true={showVisualization}>
+            <div class="visualization-container">
+                <svg class="word-cloud-svg" lwc:dom="manual"></svg>
+                <div class="word-tooltip" data-tooltip></div>
+            </div>
+        </template>
+        
+        <template if:true={error}>
+            <div class="error-container">
+                <lightning-icon icon-name="utility:error" size="small" variant="error"></lightning-icon>
+                <div class="error-message">
+                    <strong>Error:</strong> {error}
+                </div>
+            </div>
+        </template>
+        
+        <template if:false={hasData}>
+            <template if:false={isProcessing}>
+                <div class="empty-state">
+                    <lightning-icon icon-name="utility:text" size="large" class="empty-icon"></lightning-icon>
+                    <h3 class="empty-title">No Data Available</h3>
+                    <p class="empty-text">Please bind data to the results property to generate a visualization.</p>
+                </div>
+            </template>
+        </template>
+    </div>
+</template>

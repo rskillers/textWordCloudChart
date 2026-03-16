@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Text Word Cloud Chart</masterLabel>
+    <description>Interactive word cloud and bar chart visualization with hover effects for text analysis from CRM Analytics</description>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightningCommunity__Page</target>
+        <target>analytics__Dashboard</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="analytics__Dashboard">
+            <hasStep>true</hasStep>
+            <property name="chartType" type="String" default="wordCloud" label="Chart Type"
+                description="Chart type (live): wordCloud, h-wordCloud, v-wordCloud, m-wordCloud, v-BarChart, h-BarChart. Change applies immediately."
+                datasource="wordCloud,h-wordCloud,v-wordCloud,m-wordCloud,v-BarChart,h-BarChart" />
+            <property name="sizeMode" type="String" default="dynamic" label="Size Mode"
+                description="Dynamic: chart resizes with the widget. Fixed: use Canvas Width/Height below."
+                datasource="dynamic,fixed" />
+            <property name="svgWidth" type="Integer" default="800" label="Canvas Width"
+                description="Width in pixels (used when Size Mode is Fixed)" />
+            <property name="svgHeight" type="Integer" default="600" label="Canvas Height"
+                description="Height in pixels (used when Size Mode is Fixed)" />
+            <property name="maxWords" type="Integer" default="50" label="Maximum Words"
+                description="Maximum number of words to display (word clouds: 50 recommended; bar charts show top 20)" />
+            <property name="minWordLength" type="Integer" default="3" label="Minimum Word Length"
+                description="Minimum character length for words to be included" />
+            <property name="textColumnName" type="String" default="text" label="Text Column Name"
+                description="Column containing text data to analyze" />
+            <property name="showLegend" type="Boolean" default="true" label="Show Legend"
+                description="Display the legend with word statistics" />
+            <property name="theme" type="String" default="light" label="Theme"
+                description="Choose light or night theme for the chart background and chrome."
+                datasource="light,night" />
+            <property name="chartTitleOverride" type="String" label="Custom Title"
+                description="Optional custom chart title. If left blank, a default title is chosen based on the chart type." />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,218 @@
+.chart-wrapper {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e5e7eb;
+    background: white;
+    flex-shrink: 0;
+}
+
+.chart-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0;
+}
+
+.visualization-container {
+    position: relative;
+    width: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding: 16px;
+}
+
+.word-cloud-svg {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    background: white;
+    overflow: visible;
+}
+
+.word-cloud-svg text {
+    pointer-events: all;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.word-tooltip {
+    display: none;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.92);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    pointer-events: none;
+    z-index: 10000;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tooltip-content {
+    text-align: center;
+}
+
+.tooltip-content strong {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 4px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.tooltip-count {
+    font-size: 12px;
+    color: #d1d5db;
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    background: white;
+}
+
+.loading-text {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.error-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 20px;
+    color: #dc2626;
+}
+
+.error-message {
+    flex: 1;
+}
+
+.error-message strong {
+    font-weight: 600;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 80px 40px;
+    background: white;
+}
+
+.empty-icon {
+    opacity: 0.3;
+}
+
+.empty-title {
+    font-size: 18px;
+    color: #374151;
+    margin: 20px 0 8px 0;
+    font-weight: 600;
+}
+
+.empty-text {
+    max-width: 400px;
+    margin: 0 auto;
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.legend {
+    pointer-events: none;
+}
+
+.legend text {
+    user-select: none;
+}
+
+/* Night theme */
+.night-theme {
+    background: #0f172a;
+    color: #e5e7eb;
+}
+
+.night-theme .chart-header {
+    background: #020617;
+    border-bottom-color: #1e293b;
+}
+
+.night-theme .chart-title {
+    color: #e5e7eb;
+}
+
+.night-theme .visualization-container {
+    background: #020617;
+}
+
+.night-theme .word-cloud-svg {
+    background: #020617;
+}
+
+.night-theme .loading-container {
+    background: #020617;
+}
+
+.night-theme .empty-state {
+    background: #020617;
+}
+
+.night-theme .error-container {
+    background: #451a1a;
+    border-color: #7f1d1d;
+    color: #fecaca;
+}
+
+.night-theme .error-message strong {
+    color: #fecaca;
+}
+
+.night-theme .word-tooltip {
+    background: rgba(15, 23, 42, 0.96);
+    border-color: rgba(148, 163, 184, 0.6);
+}
+
+.night-theme .tooltip-count {
+    color: #9ca3af;
+}
+
+/* Bar chart specific styles */
+.bar {
+    transition: all 0.3s ease;
+}
+
+.bar:hover {
+    opacity: 0.8;
+}
+
+.label {
+    pointer-events: none;
+}
